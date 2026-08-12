@@ -1,9 +1,8 @@
 /* variables principales*/
 
-
 :root{
     /*Colores principales*/
-    --col-fondo-primario:rgba(201, 199, 199, 0.375);
+    --col-fondo-primario:rgba(11, 11, 11, 0.742);
     --col-fondo-secundario:rgb(253, 241, 241);
     --col-tarjeta-primario:rgb(126, 125, 133);
     --col-tarjeta-secundario:rgb(218, 218, 218);
@@ -12,7 +11,7 @@
     --col-btn-normal:rgb(142, 142, 142);
     --col-bar-principal:rgba(28, 28, 28, 0.986);
     /*Sombras*/
-    --col-boxshadow:rgba(159, 156, 156, 0.986);
+    --col-boxshadow:rgba(5, 4, 4, 0.986);
 
     /*Valores primarios*/
     --boxshadow-sm:0px 0px 5px var(--col-boxshadow);
@@ -36,11 +35,11 @@
     --font-general: var(--font-sans);
 
     /* hr */
-    --hr-principal: 90deg, transparent, rgb(243, 27, 27), transparent;
+    --hr-principal: 90deg, transparent, rgb(240, 233, 138), transparent;
     }
 
-
 /* reset del css */
+
 html{
     font-size: 10px;
 }
@@ -81,82 +80,109 @@ h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+input {
+  border: none;    /* Elimina el borde principal */
+  outline: none;   /* Elimina el brillo o línea al hacer clic (enfocar) */
+}
+
+
+
 
 /*body*/
 
-body{
-    background: var(--col-fondo-secundario);
-}
 hr{
-    border: 0;
-    /*height: 3px;
-    background: linear-gradient( var(--hr-principal));*/
+  border: 0;
+  height: 2px;
+  background: linear-gradient( var(--hr-principal));
 }
 
 /* header principal */
+
 header{
-  top: 0;
   position: fixed;
   width: 100vw;
 }
 .header{
-color: var(--col-font);
-/*-webkit-text-stroke: rgb(151, 151, 151) 1px;*/
-display: flex;
-height: 7.5rem;
-align-items: center;
-justify-content: space-around;
-background:var(--col-fondo-primario);
-box-shadow: var(--boxshadow-md);
+  color: var(--col-font);
+  /*-webkit-text-stroke: rgb(151, 151, 151) 1px;*/
+  display: flex;
+  height: 7.5rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  background:var(--col-fondo-primario);
 }
-.header h3{
-font-size: var(--spacing-lg);
+.header h1{
+cursor: context-menu;
 font-family: var(--font-principal);
-text-shadow: rgb(230, 227, 227) 0px 0px 30px;
+text-shadow: rgb(230, 227, 227) 0px 0px 20px;
 }
 .header img{
-    box-shadow: var(--boxshadow-sm);
     border-radius: var(--border-radius-min);
-    width: 65px;
+    width: 80px;
 }
+/* barra busqueda */
+
 .header div{
-    width: 15rem;
-    font-size: var(--spacing-md);
-    font-family: var(--font-general);
-    height: 4rem;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.455));
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: var(--border-radius-min);
-    cursor: pointer;
-    transition: .2s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  font-size: var(--spacing-md);
+  font-family: var(--font-general);
+  border-right: 4px transparent solid;
+  height: 4rem;
 }
-.header div:hover{
-  scale: 1.05;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.791));
+.btnheader{ /* agrupa los botones del header*/
+  gap: 4rem;
+}
+.btn-login{
+  padding-right: 1rem;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.455));
+  border-right: 4px transparent solid;
+  transition: .2s;
+  width: 20rem;
+  gap: 1rem;
+}
+.btn-login:hover, .btn-cart:hover{
+  background-color: rgba(240, 248, 255, 0.427);
+  border-right: 4px white solid
+}
+.btn-cart{
+  gap: 1rem;
 }
 /* navegador */
 
-.navegador{
-    height: auto;
+.searchbar input{
+  border-radius: 50px;
+  margin-right: -4rem;
+  height: 4rem;
+  background-color: black;
+  color: var(--col-font);
+  width: 50rem;
+  outline: rgb(255, 255, 255) solid 1px;
+  padding-left: 2rem;
 }
+
+
+
 .navegador nav{
-    box-shadow: var(--boxshadow-lg);
-    display: flex;
-    align-content: center;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: center;
+  background: rgba(28, 28, 28, 0.754);
+  height: 5rem;
 }
 .navegador nav div{
-    width: 100%;
-    height: 4rem;
-    color: var(--col-font);
-    font-family: var(--font-georama);
-    font-size: var(--spacing-md);
-    /* outline: 3px solid rgb(95, 95, 95);*/ 
-    text-align: center;
-    background: rgba(28, 28, 28, 0.797);
-
+  width: 20%;
+  color: var(--col-font);
+  font-family: var(--font-georama);
+  font-size: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid rgba(11, 11, 10, 0.467);
+  border-right: 1px solid rgba(11, 11, 10, 0.467);
 }
 .navegador nav div:hover{
   background-color: rgb(182, 183, 185);
@@ -175,24 +201,75 @@ main{
 footer{
   font-family: var(--font-general);
   color: var(--col-font);
-  font-size: var(--spacing-md);
+  font-size: var(--spacing-sm);
   background-color: var(--col-bar-principal);
   height: auto;
+  width: auto;
 }
-.footer{
-  /*outline: solid 2px wheat;*/
+.footerup{
+  height: 6rem;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap:15rem;
-  padding-top: 2rem;
 }
-.footer1{
+.footerup div{
   display: flex;
-  gap:2rem
+  gap:1.5rem;
+}
+
+.footermiddle{
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 .footerCont{
-    outline: solid 2px wheat;
-  background: rgb(93, 93, 93);
+  background: rgba(235, 235, 235, 0.082);
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 15rem;
+  width: 75%;
+  padding: 5rem;
+  gap: 10rem;
+  font-size:larger;
+  border-radius: var(--border-radius-min);
+  
+}
+.footerCont div{
+  height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.ftcont1{
+  gap: 2rem;
+}
+.ftcont2{
+  display: flex;
+  width: 50%;
+}
+.ftcont2 div, input{
+  height: 30%;
+  border: 2px solid rgba(255, 255, 255, 0.299);
+}
+.ftcont2 input{
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  display: flex;
+  padding-left: 2rem;
+}
+.ftcont2 div{
+  background: rgb(94, 149, 250);
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  width: 11rem;
+  display: flex;
+  padding-left: 2rem;
+  transition: .2s ease-in-out;
+}
+.ftcont2 div:hover{
+  background-color: rgb(153, 188, 220);
+  cursor: pointer;
 }
