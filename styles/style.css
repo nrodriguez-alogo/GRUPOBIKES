@@ -1,0 +1,198 @@
+/* variables principales*/
+
+
+:root{
+    /*Colores principales*/
+    --col-fondo-primario:rgba(201, 199, 199, 0.375);
+    --col-fondo-secundario:rgb(253, 241, 241);
+    --col-tarjeta-primario:rgb(126, 125, 133);
+    --col-tarjeta-secundario:rgb(218, 218, 218);
+    --col-font:rgb(247, 247, 247);
+    --col-outline:rgb(0, 0, 0) solid 2px;
+    --col-btn-normal:rgb(142, 142, 142);
+    --col-bar-principal:rgba(28, 28, 28, 0.986);
+    /*Sombras*/
+    --col-boxshadow:rgba(159, 156, 156, 0.986);
+
+    /*Valores primarios*/
+    --boxshadow-sm:0px 0px 5px var(--col-boxshadow);
+    --boxshadow-md:0px 0px 20px var(--col-boxshadow);
+    --boxshadow-lg:0px 0px 40px var(--col-boxshadow);
+    --border-radius-max:20px;
+    --border-radius-min:8px;
+    --margin-normal:20px;
+    --spacing-sm:1.5rem;
+    --spacing-md:2.0rem;
+    --spacing-lg:4.5rem;
+
+    /* fuentes*/
+    --font-russo:"Russo One", sans-serif;
+    --font-inter:"Inter", sans-serif;
+    --font-georama:"Georama", sans-serif;
+    --font-sans:"DM Sans", sans-serif;
+    --font-principal: var(--font-inter);
+    --font-secundaria: var(--font-georama);
+    --font-titulo: var(--font-russo);
+    --font-general: var(--font-sans);
+
+    /* hr */
+    --hr-principal: 90deg, transparent, rgb(243, 27, 27), transparent;
+    }
+
+
+/* reset del css */
+html{
+    font-size: 10px;
+}
+/* 1. Usa un mejor box-sizing*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+#root, #__next {
+  isolation: isolate;
+}
+
+/*body*/
+
+body{
+    background: var(--col-fondo-secundario);
+}
+hr{
+    border: 0;
+    /*height: 3px;
+    background: linear-gradient( var(--hr-principal));*/
+}
+
+/* header principal */
+header{
+  top: 0;
+  position: fixed;
+  width: 100vw;
+}
+.header{
+color: var(--col-font);
+/*-webkit-text-stroke: rgb(151, 151, 151) 1px;*/
+display: flex;
+height: 7.5rem;
+align-items: center;
+justify-content: space-around;
+background:var(--col-fondo-primario);
+box-shadow: var(--boxshadow-md);
+}
+.header h3{
+font-size: var(--spacing-lg);
+font-family: var(--font-principal);
+text-shadow: rgb(230, 227, 227) 0px 0px 30px;
+}
+.header img{
+    box-shadow: var(--boxshadow-sm);
+    border-radius: var(--border-radius-min);
+    width: 65px;
+}
+.header div{
+    width: 15rem;
+    font-size: var(--spacing-md);
+    font-family: var(--font-general);
+    height: 4rem;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.455));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius-min);
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+.header div:hover{
+  scale: 1.05;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.791));
+}
+/* navegador */
+
+.navegador{
+    height: auto;
+}
+.navegador nav{
+    box-shadow: var(--boxshadow-lg);
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+}
+.navegador nav div{
+    width: 100%;
+    height: 4rem;
+    color: var(--col-font);
+    font-family: var(--font-georama);
+    font-size: var(--spacing-md);
+    /* outline: 3px solid rgb(95, 95, 95);*/ 
+    text-align: center;
+    background: rgba(28, 28, 28, 0.797);
+
+}
+.navegador nav div:hover{
+  background-color: rgb(182, 183, 185);
+  cursor: pointer;
+    transition: .2s ease-out;
+}
+
+/* main */
+main{
+  height: 1080px;
+}
+.img-moto{
+  width: 100vw;
+}
+/* footer */
+footer{
+  font-family: var(--font-general);
+  color: var(--col-font);
+  font-size: var(--spacing-md);
+  background-color: var(--col-bar-principal);
+  height: auto;
+}
+.footer{
+  /*outline: solid 2px wheat;*/
+  display: flex;
+  justify-content: center;
+  gap:15rem;
+  padding-top: 2rem;
+}
+.footer1{
+  display: flex;
+  gap:2rem
+}
+.footerCont{
+    outline: solid 2px wheat;
+  background: rgb(93, 93, 93);
+  display: flex;
+
+}
