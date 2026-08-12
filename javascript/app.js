@@ -36,3 +36,4 @@ traerMotos(['ducati', 'yamaha', 'honda', 'bmw', 'ktm'])
     console.log('Primera moto:', motos[0]);
     console.table(motos);
   });
+  //hola
