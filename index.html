@@ -11,78 +11,125 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Georama:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Russo+One&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100,0,0&" />
 
 </head>
+
+
 <body>
+
 <!-- header principal, incluira un nav mas abajo -->
+
     <header>
 
         <div class="header"> 
 
-            <img src="imgSource/moto1.jpg" alt="logo 1" >
-            <h3>Grupo bikes</h3>
-            <div class="btn-login">
-                <p>iniciar sesion</p>
+            <!-- img logo y titulo -->
+
+            <div class="imgheader">
+
+                <img src="imgSource/moto1.png" alt="logo 1" >
+                <h1>Grupo Bikes</h1>
+
             </div>
 
+            <!-- barra busqueda -->
+
+            <div class="searchbar">
+
+                <input type="text" placeholder="Que buscas?" id="search1">
+                <span class="material-symbols-outlined"> search</span>
+
+            </div>
+
+            <!-- boton login y carrito -->
+
+            <div class="btnheader">
+
+                <div class="btn-cart">
+                    mi carrito 
+                    <span class="material-symbols-outlined"> shopping_cart</span>
+                </div>
+                
+                <div class="btn-login">
+                    iniciar sesion
+                    <span class="material-symbols-outlined">account_circle</span>
+                </div>
+
+            </div>
+
+            
         </div>
         <!-- Navegador -->
+         <hr>
         <div class="navegador">
 
             <nav>
-                <div></div>
-                <div><p>inicio</p></div>
-                <div><p>prductos</p></div>
-                <div><p>marcas</p></div>
-                <div><p>noticias</p></div>
-                <div></div>
+
+                <div>inicio</div>
+                <div>productos</div>
+                <div>marcas</div>
+                <div>noticias</div>
+
             </nav>
 
         </div>
-
+        <hr>
     </header>
 <!-- main de la pagina -->
 
-<main>
+<main id="mainContent">
+
     <div class="foto-main">
+
         <img src="https://motos.honda.com.co/images/cms/GOLD-WING-BANNER-WEB.jpg" alt="Motos de alta gama" class="img-moto">
+
     </div>
 
 </main>
+
 <!-- Footer de la pagina )) -->
+ 
 <footer>
 
-    <div class="footer">
-        <div class="footer1">
+    <div class="footerup">
+        <div>
             <span class="material-symbols-outlined">comment</span>
             <p>atencion al cliente</p>
         </div>
 
-        <div class="footer1">
+        <div>
             <span class="material-symbols-outlined">local_mall</span>
             <p>Envio gratis a partir de $150.000</p>
         </div>
 
-        <div class="footer1">
+        <div>
             <span class="material-symbols-outlined">shield_lock</span>
             <p>compra 100% segura</p>
         </div>
     </div>
 
-    <div class="footerCont">
-        <div class="ftcont1">
-            <span class="material-symbols-outlined">mail</span>
-            <p>Sigamos conectados
-            Suscríbete a nuestro boletín para recibir las ultimas noticias y enterarte de nuestros lanzamientos.</p>
-        </div>
-        <div class="ftcont">
-            <div class="contact">
-                <label for="contact1"></label>
+    <div class="footermiddle">
+
+        <div class="footerCont">
+
+            <div class="ftcont1">
+
+                <span class="material-symbols-outlined">mail</span>
+                <p>Sigamos conectados
+                Suscríbete a nuestro boletín para recibir las ultimas noticias y enterarte de nuestros lanzamientos.</p>
+
+            </div>
+
+            <div class="ftcont2">
+
                 <input type="text" id="contact1" placeholder="correo electronico">
                 <div class="btnsendcont">enviar</div>
+
             </div>
+
         </div>
+
     </div>
 </footer>
     <script src="javascript/app.js"></script>
