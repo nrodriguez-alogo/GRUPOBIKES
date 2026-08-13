@@ -192,7 +192,7 @@ text-shadow: rgb(230, 227, 227) 0px 0px 20px;
 
 /* main */
 main{
-  height: 1080px;
+  height: 2080px;
 }
 .img-moto{
   width: 100vw;
@@ -272,4 +272,28 @@ footer{
 .ftcont2 div:hover{
   background-color: rgb(153, 188, 220);
   cursor: pointer;
+}
+
+article{
+  background-color: rgb(231, 229, 229);
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  font-family: var(--font-principal);
+}
+
+article img{
+  height: 250px;
+  width: 100%;
+  max-height: 250px;
+  margin: 0px;
+}
+
+section.product-grid{
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  padding: 80px;
+  margin: 20px 0px 20px 0px;
+  display: grid;
+  background-color: rgb(249, 251, 254);
 }
