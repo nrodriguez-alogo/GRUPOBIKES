@@ -27,7 +27,24 @@ const imagenesMotos = [
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcf3gHj4AHzHWU7ZWnT1sn1G67yoX3d1AfwNYXKAGVDQ&s=10",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcPz1Lc8uXER_uVQ_-S4Wt-K32cVBJH-sUJBSb7SKTaA&s=10",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSba5ESRy0Ec-Jpuk9xkmn8EFcVoim1pqbOd8Brjga-_A&s=10",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRqIeOBz4-8Axm58RI60Pl7-taEHqFPyG0rz2gEHtT6A&s=10"
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRqIeOBz4-8Axm58RI60Pl7-taEHqFPyG0rz2gEHtT6A&s=10",
+    "https://www.carroya.com/noticias/sites/default/files/motos_nuevas_bogota_carroya_.webp",
+    "https://ciudadmovilcolombia.com/wp-content/uploads/2025/09/PIXEL-PORTADA.png",
+    "https://www.incolmotos-yamaha.com.co/wp-content/uploads/2024/08/XMAXREDDISH_carrusel.png",
+    "https://iprorwxhnpjrlj5q.ldycdn.com/cloud/piBpiKkolnSRolknkpoikp/01.jpg",
+    "https://images.ctfassets.net/8zlbnewncp6f/5745ztSmkSrYjMvip2rnQQ/d72ad39b8c9db8550a35ed5e68024337/mt15_aguamarina.jpg?w=600&fm=webp&q=90",
+    "https://s.alicdn.com/@sc04/kf/H71c4f92fdeba4d169459383a527a55baI/High-Cost-Performance-Mini-Dirt-Bike-Electric-Kids-Cross-Bike-for-11-Years-Boy.jpg",
+    "https://potenza.com.co/wp-content/uploads/2024/03/558991-my24-ktm-990-duke-orange-eu-global-front-right-studio-global-europe-studio-risultato-jpg.webp",
+    "https://www.incolmotos-yamaha.com.co/wp-content/uploads/2018/03/sz_gris_verde-1.jpg",
+    "https://www.incolmotos-yamaha.com.co/wp-content/themes/yamaha/img/lineaTiempo/motocentro4.png",
+    "https://www.incolmotos-yamaha.com.co/wp-content/uploads/2024/02/fz15ve_azul.png",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHSqaqEJQ87EeLeb3DlIoTKYVqTzfZuJR68z0JujPqJuOTIlYnfNYpY5w&s=10",
+    "https://www.incolmotos-yamaha.com.co/wp-content/uploads/2018/03/Azul-5-1.jpg",
+    "https://www.motofichas.com/images/cache/10-yamaha-mt-09-2024-estudio-gris-cyan-01-398-a-mobile.jpg",
+    "https://www.incolmotos-yamaha.com.co/wp-content/uploads/2025/02/Mt09_2024_gris_carrusel-1.png",
+    "https://autocdn.co.uk/cdn-cgi/imagedelivery/JC4X6oe6GKVO4ZI4xd1Czg/2d8d8cbf-ac1d-4c01-5b6c-b84b04731500/raw",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSivBOudhr-m7h-j-G1ERF92TJhpAlzYqfKATfQz0kuCV0e60jpf93DzYki&s=10",
+    "https://www.colcamer.com/wp-content/uploads/2024/07/Pulsar-ns-200-ngra-02.webp"
     // ... hasta 15
 ];
 
@@ -37,7 +54,7 @@ function obtenerImagenAleatoria() {
 }
 
 TraerMotos(data => {
-  const primerasDiez = data.Results.slice(0, 10);
+  const primerasDiez = data.Results.slice(0, 15);
     primerasDiez.forEach(moto => {
         //const imagenPersonaje = personaje.image || "https://cdn-icons-png.flaticon.com/256/2817/2817375.png";
         const article = document.createRange().createContextualFragment(`
