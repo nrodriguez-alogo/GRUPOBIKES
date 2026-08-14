@@ -284,16 +284,19 @@ article{
 
 article img{
   height: 250px;
-  width: 100%;
-  max-height: 250px;
+  max-width: 100%;
   margin: 0px;
 }
 
 section.product-grid{
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
   padding: 80px;
   margin: 20px 0px 20px 0px;
   display: grid;
   background-color: rgb(249, 251, 254);
+}
+
+article.image-container{
+  background-color: white;
 }
