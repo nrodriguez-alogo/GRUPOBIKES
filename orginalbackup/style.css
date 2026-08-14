@@ -35,7 +35,7 @@
     --font-general: var(--font-sans);
 
     /* hr */
-    --hr-principal: 90deg, transparent, rgb(240, 233, 138), transparent;
+    --hr-principal: 90deg, transparent, rgb(251, 255, 254), transparent;
     }
 
 /* reset del css */
@@ -101,6 +101,8 @@ hr{
 header{
   position: fixed;
   width: 100vw;
+  z-index: 10;
+  backdrop-filter: blur(5px);
 }
 .header{
   color: var(--col-font);
@@ -133,6 +135,7 @@ text-shadow: rgb(230, 227, 227) 0px 0px 20px;
   font-family: var(--font-general);
   border-right: 4px transparent solid;
   height: 4rem;
+  
 }
 .btnheader{ /* agrupa los botones del header*/
   gap: 4rem;
@@ -192,7 +195,7 @@ text-shadow: rgb(230, 227, 227) 0px 0px 20px;
 
 /* main */
 main{
-  height: 2080px;
+  height: auto;
 }
 .img-moto{
   width: 100vw;
@@ -275,28 +278,72 @@ footer{
 }
 
 article{
-  background-color: rgb(231, 229, 229);
-  border-radius: 10px;
+  background: linear-gradient(10deg, rgba(77, 84, 90, 0.334), rgb(34, 35, 39));;
+  border-radius: var(--border-radius-min);
   overflow: hidden;
   text-align: center;
   font-family: var(--font-principal);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.287);
+  color: var(--col-font);
+  font-size: var(--spacing-sm);
+  outline: 1px rgb(114, 113, 113) solid;
+  transition: all .2s;
+  backdrop-filter: blur(10px);
+}
+article:hover{
+  transform: scale(105%);
+  box-shadow: 0px 10px 25px rgb(6, 6, 6);
 }
 
 article img{
   height: 250px;
   max-width: 100%;
-  margin: 0px;
+  margin: 3rem;
+  border-radius: var(--border-radius-max);
+  
 }
 
-section.product-grid{
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  padding: 80px;
-  margin: 20px 0px 20px 0px;
-  display: grid;
-  background-color: rgb(249, 251, 254);
+section.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
+    padding: 13rem;
+    background: linear-gradient(30deg, rgb(48, 47, 47), black,rgb(69, 79, 85));
+    
 }
 
-article.image-container{
-  background-color: white;
+.image-container, .articletn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.eliminarDelCarrito, .agregarAlCarrito{
+  width: 10rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-min);
+  font-family: var(--font-titulo);
+  transition: all .2s;
+  color: white;
+}
+.eliminarDelCarrito{
+  background: rgb(190, 41, 41);
+}
+.agregarAlCarrito{
+  background: rgb(2, 192, 2);
+}
+.eliminarDelCarrito:hover, .agregarAlCarrito:hover{
+  outline: 2px solid wheat;
+  cursor: pointer;
+  transform: scale(115%);
+  box-shadow: 0px 0px 15px white;
+}
+.cnttlta{
+  width: 3rem;
+}
+.totalh{
+  width: 12rem;
 }

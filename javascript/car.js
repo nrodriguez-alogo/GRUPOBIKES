@@ -1,0 +1,1 @@
+/* por si las moscas, para despues hacer que mande a otra pagina en caso de necesitarlo */
