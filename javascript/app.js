@@ -4,7 +4,6 @@ function TraerMotos(done){
     results
     .then(response =>response.json())
     .then(data =>{
-      console.log(data);
       done(data)
     });
 }
@@ -56,16 +55,22 @@ function obtenerImagenAleatoria() {
 TraerMotos(data => {
   const primerasDiez = data.Results.slice(0, 15);
     primerasDiez.forEach(moto => {
-        //const imagenPersonaje = personaje.image || "https://cdn-icons-png.flaticon.com/256/2817/2817375.png";
-        const article = document.createRange().createContextualFragment(`
+        
+      const article = document.createRange().createContextualFragment(`
         <article>
             <div class="image-container">
                 <img src=${obtenerImagenAleatoria()}>
             </div>
             <hr></hr>
             <h3>${moto.Model_Name} ${moto.Make_Name}</h3>
-            <button id="eliminarDelCarrito">Eliminar del carrito</button>
-            <button id="agregarAlCarrito">Agregar al carrito</button>
+            <br>
+            <div>
+                    <button id="eliminarDelCarrito">Eliminar del carrito</button>
+                    <span id="cantidad">0</span>
+                    <button id="agregarAlCarrito">Agregar al carrito</button>
+            </div>
+            <br>
+            <div id="total">Total:</div>
         </article>
         `);
 
