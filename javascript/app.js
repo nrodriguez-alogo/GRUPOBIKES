@@ -44,11 +44,6 @@ const imagenesMotos = [
     "https://autocdn.co.uk/cdn-cgi/imagedelivery/JC4X6oe6GKVO4ZI4xd1Czg/2d8d8cbf-ac1d-4c01-5b6c-b84b04731500/raw",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSivBOudhr-m7h-j-G1ERF92TJhpAlzYqfKATfQz0kuCV0e60jpf93DzYki&s=10",
     "https://www.colcamer.com/wp-content/uploads/2024/07/Pulsar-ns-200-ngra-02.webp"
-<<<<<<< HEAD
-
-=======
-    // ... hasta 15
->>>>>>> main
 ];
 
 function obtenerImagenAleatoria() {
@@ -57,15 +52,9 @@ function obtenerImagenAleatoria() {
 }
 
 TraerMotos(data => {
-<<<<<<< HEAD
   const primerasDiez = data.Results.slice(0, 24);
   const contenedor = document.querySelector(".product-grid");
   const precio = 239; /*Precio del producto*/
-=======
-  const primerasDiez = data.Results.slice(0, 15);
-  const contenedor = document.querySelector(".product-grid");
-  const precio = 10; /*Precio del producto*/
->>>>>>> main
   let totalProductos=0;
 
     primerasDiez.forEach(moto => {
@@ -73,7 +62,6 @@ TraerMotos(data => {
 
       const article = document.createRange().createContextualFragment(`
         <article>
-<<<<<<< HEAD
 
             <div class="image-container">
 
@@ -112,21 +100,6 @@ TraerMotos(data => {
                 
             </div>
             <br>
-=======
-            <div class="image-container">
-                <img src="${obtenerImagenAleatoria()}">
-            </div>
-            <hr>
-            <h3>${moto.Model_Name} ${moto.Make_Name}</h3>
-            <br>
-            <div>
-                    <button class="eliminarDelCarrito">Eliminar del carrito</button>
-                    <span class="cantidad">0</span>
-                    <button class="agregarAlCarrito">Agregar al carrito</button>
-            </div>
-            <br>
-            <div class="total">Total:</div>
->>>>>>> main
         </article>
         `);
 
@@ -135,7 +108,6 @@ TraerMotos(data => {
             const cantidadSpn   = article.querySelector(".cantidad");
             const totalDiv      = article.querySelector(".total");
 
-<<<<<<< HEAD
             /* varibale total de articulos y de precio total*/
             let   articulostotal= document.querySelector("#cantidadTotal")
             let   preciototal   = document.querySelector("#totalcost")
@@ -152,23 +124,13 @@ TraerMotos(data => {
             }
 
 
-=======
-            function actualizarContador() {
-              cantidadSpn.textContent = cantidad;
-              totalDiv.textContent = `Total: $${(cantidad * precio).toFixed(2)}`;
-            }
-
->>>>>>> main
             botonEliminar.addEventListener("click", () => {
             if (cantidad > 0) {
             cantidad--;
             totalProductos--;
             //console.log(totalProductos);
             actualizarContador();
-<<<<<<< HEAD
             actualizarheader()
-=======
->>>>>>> main
             }
             });
 
@@ -177,11 +139,7 @@ TraerMotos(data => {
             totalProductos++;
             //console.log(totalProductos);
             actualizarContador();
-<<<<<<< HEAD
             actualizarheader()
-=======
-            
->>>>>>> main
             });
 
         contenedor.append(article);
