@@ -54,99 +54,58 @@ function obtenerImagenAleatoria() {
 
 TraerMotos(data => {
   const primerasDiez = data.Results.slice(0, 15);
+  const contenedor = document.querySelector(".product-grid");
+  const precio = 10; /*Precio del producto*/
+  let totalProductos=0;
+
     primerasDiez.forEach(moto => {
-        
+      let cantidad = 0;
+
       const article = document.createRange().createContextualFragment(`
         <article>
             <div class="image-container">
-                <img src=${obtenerImagenAleatoria()}>
+                <img src="${obtenerImagenAleatoria()}">
             </div>
-            <hr></hr>
+            <hr>
             <h3>${moto.Model_Name} ${moto.Make_Name}</h3>
             <br>
             <div>
-                    <button id="eliminarDelCarrito">Eliminar del carrito</button>
-                    <span id="cantidad">0</span>
-                    <button id="agregarAlCarrito">Agregar al carrito</button>
+                    <button class="eliminarDelCarrito">Eliminar del carrito</button>
+                    <span class="cantidad">0</span>
+                    <button class="agregarAlCarrito">Agregar al carrito</button>
             </div>
             <br>
-            <div id="total">Total:</div>
+            <div class="total">Total:</div>
         </article>
         `);
 
-        const contenedor = document.querySelector(".product-grid");;
+            const botonEliminar = article.querySelector(".eliminarDelCarrito");
+            const botonAgregar  = article.querySelector(".agregarAlCarrito");
+            const cantidadSpn   = article.querySelector(".cantidad");
+            const totalDiv      = article.querySelector(".total");
+
+            function actualizarContador() {
+              cantidadSpn.textContent = cantidad;
+              totalDiv.textContent = `Total: $${(cantidad * precio).toFixed(2)}`;
+            }
+
+            botonEliminar.addEventListener("click", () => {
+            if (cantidad > 0) {
+            cantidad--;
+            totalProductos--;
+            //console.log(totalProductos);
+            actualizarContador();
+            }
+            });
+
+            botonAgregar.addEventListener("click", () => {
+            cantidad++;
+            totalProductos++;
+            //console.log(totalProductos);
+            actualizarContador();
+            
+            });
 
         contenedor.append(article);
     });
 });
-async function traerMotos(marcas, porMarca = 15) {
-  const motos = [];
-
-   for (const marca of marcas) {
-     const url = `https://carimagesapi.com/api/v1/motos/makes/${marca}/models?api_key=${API_KEY}&limit=${porMarca}`;
-     const res = await fetch(url, { headers: { 'X-Api-Secret': API_SECRET } });
-
-     if (!res.ok) {
-       console.warn(`${marca}: HTTP ${res.status}`);
-       continue;
-     }
-
-     const json = await res.json();
-
-     for (const modelo of json.data) {
-       if (!modelo.thumbnail) continue;
-       motos.push({
-         marca: json.make.name,
-         modelo: modelo.name,
-         categoria: modelo.category,
-         cilindraje: modelo.displacement,
-         imagen: modelo.thumbnail
-       });
-     }
-   }
-
-   return motos;
- }
-
- traerMotos(['ducati', 'yamaha', 'honda', 'bmw', 'ktm'])
-   .then(motos => {
-     console.log('Total motos:', motos.length);
-     console.log('Primera moto:', motos[0]);
-     console.table(motos);
-   });
-
-
-
-//Diego
-//CONTADOR
-//Definir variables
-let cantidad = 0;
-const precio = 10; /*Precio del producto*/
-//DOM
-const botonEliminarDelCarrito = document.getElementById(`eliminarDelCarrito`);
-// console.log(botonEliminarDelCarrito);
-const botonAgregarAlCarrito = document.getElementById(`agregarAlCarrito`);
-const cantidadSpn = document.getElementById("cantidad");
-const total = document.getElementById("total");
-//Función
-function actualizarContador() { //Para actualizar
-  cantidadSpn.textContent = cantidad;
-  const totalOperacion = cantidad * precio;
-  total.textContent = `Total $${totalOperacion.toFixed(2)}`;
-}
-//Disminuir
-botonEliminarDelCarrito.addEventListener("click", () => {
-  if (cantidad > 0) {
-    cantidad--;
-    actualizarContador();
-  }
-});
-//Incrementar
-botonAgregarAlCarrito.addEventListener("click", () => {
-  (cantidad > 1); {
-    cantidad++;
-    actualizarContador();
-  }
-});
-
-//Diego
