@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GroupBikes</title>
-    <link rel="stylesheet" href="styles/style.css">
-
-    
+    <title>Group Bikes</title>
+    <link rel="stylesheet" href="styles/root.css">
+    <link rel="stylesheet" href="styles/header.css"> <!-- aqui se encuentra todo lo de arirba, incluyendo la barra de busqueda -->
+    <link rel="stylesheet" href="styles/main.css"> <!-- config main y del article de js -->
+    <link rel="stylesheet" href="styles/footer.css"> <!-- todo el footer -->
+    <link rel="stylesheet" href="styles/responsive.css"> <!-- HAGAN LA PAGINA RESPONSIVE!!!! -->
     <!-- linkeo de fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Georama:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Russo+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100,0,0&" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Georama:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Russo+One&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 </head>
 
 
 <body>
 
-<!-- header principal, incluira un nav mas abajo -->
+    <!-- header principal, incluira un nav mas abajo -->
 
     <header>
 
-        <div class="header"> 
+        <div class="header">
 
             <!-- img logo y titulo -->
 
             <div class="imgheader">
 
-                <img src="imgSource/moto1.png" alt="logo 1" >
+                <img src="resources/moto1.png" alt="logo 1">
                 <h1>Grupo Bikes</h1>
 
             </div>
@@ -47,10 +52,19 @@
             <div class="btnheader">
 
                 <div class="btn-cart">
-                    mi carrito 
+                    mi carrito
                     <span class="material-symbols-outlined"> shopping_cart</span>
+
+                    <div class="cnttlta">
+                        <span id="cantidadTotal">0</span>
+                    </div>
+
                 </div>
-                
+
+                <div class="totalh" id="totalcost">
+                     precio total: $0.00
+                </div>
+
                 <div class="btn-login">
                     iniciar sesion
                     <span class="material-symbols-outlined">account_circle</span>
@@ -58,10 +72,10 @@
 
             </div>
 
-            
+
         </div>
         <!-- Navegador -->
-         <hr>
+        <hr>
         <div class="navegador">
 
             <nav>
@@ -76,20 +90,24 @@
         </div>
         <hr>
     </header>
-<!-- main de la pagina -->
+    <!-- main de la pagina -->
 
-<main id="mainContent">
+    <main id="mainContent">
 
-    <div class="foto-main">
+        <div class="foto-main">
 
-        <img src="https://motos.honda.com.co/images/cms/GOLD-WING-BANNER-WEB.jpg" alt="Motos de alta gama" class="img-moto">
+            <img src="https://motos.honda.com.co/images/cms/GOLD-WING-BANNER-WEB.jpg" alt="Motos de alta gama"
+                class="img-moto">
+        </div>
 
-    </div>
+    <section class="product-grid">
+    </section>
 
 </main>
 
 <!-- Footer de la pagina )) -->
- 
+ <hr>
+
 <footer>
 
     <div class="footerup">
@@ -99,39 +117,42 @@
         </div>
 
         <div>
-            <span class="material-symbols-outlined">local_mall</span>
-            <p>Envio gratis a partir de $150.000</p>
+                <span class="material-symbols-outlined">local_mall</span>
+                <p>Envio gratis a partir de $150.000</p>
         </div>
 
-        <div>
-            <span class="material-symbols-outlined">shield_lock</span>
-            <p>compra 100% segura</p>
+            <div>
+                <span class="material-symbols-outlined">shield_lock</span>
+                <p>compra 100% segura</p>
+            </div>
         </div>
-    </div>
 
-    <div class="footermiddle">
+        <div class="footermiddle">
 
-        <div class="footerCont">
+            <div class="footerCont">
 
-            <div class="ftcont1">
+                <div class="ftcont1">
 
-                <span class="material-symbols-outlined">mail</span>
-                <p>Sigamos conectados
-                Suscríbete a nuestro boletín para recibir las ultimas noticias y enterarte de nuestros lanzamientos.</p>
+                    <span class="material-symbols-outlined">mail</span>
+                    <p>Sigamos conectados
+                        Suscríbete a nuestro boletín para recibir las ultimas noticias y enterarte de nuestros
+                        lanzamientos.</p>
+
+                </div>
+
+                <div class="ftcont2">
+
+                    <input type="text" id="contact1" placeholder="correo electronico">
+                    <div class="btnsendcont">enviar</div>
+
+                </div>
 
             </div>
 
-            <div class="ftcont2">
-
-                <input type="text" id="contact1" placeholder="correo electronico">
-                <div class="btnsendcont">enviar</div>
-
-            </div>
-
         </div>
-
-    </div>
-</footer>
+    </footer>
+    <script src="javascript/filter.js"></script>
+    <script src="javascript/car.js"></script>
     <script src="javascript/app.js"></script>
 </body>
 

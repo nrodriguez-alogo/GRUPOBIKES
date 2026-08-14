@@ -1,0 +1,77 @@
+/* footer completo */
+
+footer{
+  font-family: var(--font-general);
+  color: var(--col-font);
+  font-size: var(--spacing-sm);
+  background-color: var(--col-bar-principal);
+  height: auto;
+  width: auto;
+}
+.footerup{
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:15rem;
+}
+.footerup div{
+  display: flex;
+  gap:1.5rem;
+}
+
+.footermiddle{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.footerCont{
+  background: rgba(235, 235, 235, 0.082);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 15rem;
+  width: 75%;
+  padding: 5rem;
+  gap: 10rem;
+  font-size:larger;
+  border-radius: var(--border-radius-min);
+  
+}
+.footerCont div{
+  height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ftcont1{
+  gap: 2rem;
+}
+.ftcont2{
+  display: flex;
+  width: 50%;
+}
+.ftcont2 div, input{
+  height: 30%;
+  border: 2px solid rgba(255, 255, 255, 0.299);
+}
+.ftcont2 input{
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  display: flex;
+  padding-left: 2rem;
+}
+.ftcont2 div{
+  background: rgb(94, 149, 250);
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  width: 11rem;
+  display: flex;
+  padding-left: 2rem;
+  transition: .2s ease-in-out;
+}
+.ftcont2 div:hover{
+  background-color: rgb(153, 188, 220);
+  cursor: pointer;
+}

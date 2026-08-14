@@ -1,0 +1,100 @@
+/* header principal */
+
+header{
+  position: fixed;
+  width: 100vw;
+  z-index: 10;
+  backdrop-filter: blur(5px);
+}
+.header{
+  color: var(--col-font);
+  /*-webkit-text-stroke: rgb(151, 151, 151) 1px;*/
+  display: flex;
+  height: 7.5rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  background:var(--col-fondo-primario);
+}
+.header h1{
+cursor: context-menu;
+font-family: var(--font-principal);
+text-shadow: rgb(230, 227, 227) 0px 0px 20px;
+}
+.header img{
+    border-radius: var(--border-radius-min);
+    width: 80px;
+}
+/* barra busqueda */
+
+.header div{
+  cursor: pointer;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  font-size: var(--spacing-md);
+  font-family: var(--font-general);
+  border-right: 4px transparent solid;
+  height: 4rem;
+  
+}
+.btnheader{ /* agrupa los botones del header*/
+  gap: 4rem;
+}
+.btn-login{
+  padding-right: 1rem;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.455));
+  border-right: 4px transparent solid;
+  transition: .2s;
+  width: 20rem;
+  gap: 1rem;
+}
+.btn-login:hover, .btn-cart:hover{
+  background-color: rgba(240, 248, 255, 0.427);
+  border-right: 4px white solid
+}
+.btn-cart{
+  gap: 1rem;
+}
+/* navegador */
+
+.searchbar input{
+  border-radius: 50px;
+  margin-right: -4rem;
+  height: 4rem;
+  background-color: black;
+  color: var(--col-font);
+  width: 50rem;
+  outline: rgb(255, 255, 255) solid 1px;
+  padding-left: 2rem;
+}
+.navegador nav{
+  display: flex;
+  justify-content: center;
+  background: rgba(28, 28, 28, 0.754);
+  height: 5rem;
+}
+.navegador nav div{
+  width: 20%;
+  color: var(--col-font);
+  font-family: var(--font-georama);
+  font-size: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid rgba(11, 11, 10, 0.467);
+  border-right: 1px solid rgba(11, 11, 10, 0.467);
+}
+.navegador nav div:hover{
+  background-color: rgb(182, 183, 185);
+  cursor: pointer;
+    transition: .2s ease-out;
+}
+
+.cnttlta{
+  width: 3rem;
+}
+.totalh{
+  width: 12rem;
+}
