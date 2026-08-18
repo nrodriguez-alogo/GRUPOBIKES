@@ -2,7 +2,11 @@
 
 header{
   position: fixed;
-  width: 100vw;
+  width: 100%; /*Cubre el total de la pantalla*/
+  max-width: 1400px;
+  left: 50%; /* Sirve para dejar fijo el header*/
+  transform: translateX(-50%);/*Funciona con "left de 50%" y hace que funcione ´para cualquier pantalla*/
+  margin: auto;
   z-index: 10;
   backdrop-filter: blur(5px);
 }
@@ -13,18 +17,22 @@ header{
   height: 7.5rem;
   align-items: center;
   justify-content: space-between;
-  padding-left: 8rem;
-  padding-right: 8rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
   background:var(--col-fondo-primario);
+  gap: 2rem;
 }
 .header h1{
 cursor: context-menu;
 font-family: var(--font-principal);
 text-shadow: rgb(230, 227, 227) 0px 0px 20px;
+white-space: nowrap;/*Para que los títuklos de más de una palabra no pasen una enncima de la otra*/
+
 }
 .header img{
     border-radius: var(--border-radius-min);
     width: 80px;
+    height: auto;
 }
 /* barra busqueda */
 
@@ -40,14 +48,14 @@ text-shadow: rgb(230, 227, 227) 0px 0px 20px;
   
 }
 .btnheader{ /* agrupa los botones del header*/
-  gap: 4rem;
+  gap: 2rem;
 }
 .btn-login{
   padding-right: 1rem;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.455));
   border-right: 4px transparent solid;
   transition: .2s;
-  width: 20rem;
+  width: auto;
   gap: 1rem;
 }
 .btn-login:hover, .btn-cart:hover{
@@ -61,11 +69,11 @@ text-shadow: rgb(230, 227, 227) 0px 0px 20px;
 
 .searchbar input{
   border-radius: 50px;
-  margin-right: -4rem;
   height: 4rem;
   background-color: black;
   color: var(--col-font);
-  width: 50rem;
+  width: 100%;
+  max-width: 40rem;
   outline: rgb(255, 255, 255) solid 1px;
   padding-left: 2rem;
 }
@@ -97,4 +105,59 @@ text-shadow: rgb(230, 227, 227) 0px 0px 20px;
 }
 .totalh{
   width: 12rem;
+}
+
+@media (max-width: 1200px)/*Laptops*/ {
+  .header {
+    padding: 2rem;
+  }
+  
+  .searchbar input {
+    max-width: 30rem;
+  }
+}
+
+@media (max-width: 992px)/*Tablets*/ {
+  .header h1 {
+    font-size: 1,5rem;
+  }
+  
+  .btnheader {
+    gap: 1rem;
+  }
+
+  .btn-login {
+    width: auto;
+    font-size: 0.7rem;
+  }
+
+  .totalh {
+    display: none;/*Oculta el texto*/
+  }
+}
+
+@media (max-width: 768px)/*Celulares*/{
+  .header {
+    height: auto;
+    flex-wrap: wrap; /*/*Los elementos bajan de línea*/
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+   .searchbar {
+    order: 3; /*Según el orden en el que estén escritas en el html, se establece la posición del objeto. 3 en este caso*/
+    width: 100%;/*El objeto ocupará el 100% del espacio disponible*/
+  } 
+
+  .searchbar input {
+    max-width: 100%;
+  }
+
+   .navegador nav div {
+    width: 100%;
+    height: 4rem;
+    border-bottom: 1px solid rgba(11, 11, 10, 0.467);
+  }
 }

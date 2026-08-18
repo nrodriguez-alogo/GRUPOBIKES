@@ -1,11 +1,15 @@
 /* main */
 main{
   height: auto;
+  max-width: 100%;/*Para que no sea más anchjo que el contenedor*/
 }
 .img-moto{
-  width: 100vw;
+  max-width: 100%;
+  /* width: 100vw; */
+  height: auto;
+  flex-shrink: 0;/*Para que felx no comprima la imagen*/
+  object-fit: cover;/*Para ajustar el tamaño dentro del contenedor*/
 }
-
 /* configura los articles del javascript */
 
 article{
@@ -28,17 +32,18 @@ article:hover{
 
 article img{
   height: 250px;
-  max-width: 100%;
-  margin: 3rem;
+  max-width: 80%;
+  margin: 2rem auto;
   border-radius: var(--border-radius-max);
+  object-fit: cover;/*Para ajustar el tamaño dentro del contenedor*/
   
 }
 
 section.product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 5rem;
-    padding: 13rem;
+    gap: 3rem;
+    padding: 5rem;
     background: linear-gradient(30deg, rgb(48, 47, 47), black,rgb(69, 79, 85));
     
 }
@@ -48,6 +53,8 @@ section.product-grid {
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  max-width: 100%;
+  height: auto;
 }
 .eliminarDelCarrito, .agregarAlCarrito{
   width: 10rem;
@@ -72,3 +79,33 @@ section.product-grid {
   transform: scale(115%);
   box-shadow: 0px 0px 15px white;
 }
+
+@media (max-width: 1024px)/*Pantallas estándar*/ {
+    section.product-grid {
+         display: grid;
+         grid-template-columns:repeat(2, 1fr);/*Para pasar de 3 a 2 columnas*/
+         gap: 3rem;
+         padding: 4rem;
+    }
+}
+
+@media (max-width: 768px)/*Celulares*/ {
+  article img {
+    height: 180px;
+    margin: auto;
+  }
+
+  .articletn {
+    flex-direction: column;/* Se apilan los botones de agregar y quitar */
+    gap: 1rem;
+    padding: 1rem;
+  }
+}
+
+
+@media (max-width: 576px)/*Inferiores*/ {
+  section.product-grid {
+    grid-template-columns: 1fr;/*Pasa de 2 columnas a 1*/
+    padding: 2rem;
+  }
+} 
