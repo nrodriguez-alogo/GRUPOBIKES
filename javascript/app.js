@@ -1,9 +1,10 @@
 function TraerMotos(done){
     const results = fetch("https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeIdYear/makeId/474/modelyear/2020?format=json")
+    console.log(results);
 
     results
-    .then(response =>response.json())
-    .then(data =>{
+    .then(response => response.json())
+    .then(data => {
       done(data)
     });
 }
@@ -51,97 +52,114 @@ function obtenerImagenAleatoria() {
     return imagenesMotos[indiceAleatorio];
 }
 
-TraerMotos(data => {
-  const primerasDiez = data.Results.slice(0, 24);
-  const contenedor = document.querySelector(".product-grid");
-  const precio = 239; /*Precio del producto*/
-  let totalProductos=0;
+const search1 = document.querySelector("#search1");
+let listaMotos = []; // Aquí guardaremos TODOS los datos de la API
+const precio = 239; /* Precio del producto */
+let totalProductos = 0;
 
-    primerasDiez.forEach(moto => {
-      let cantidad = 0;
+// NUEVA FUNCIÓN: Se encarga de pintar las motos que reciba en los parámetros
+function renderizarMotos(motosParaMostrar) {
+    const contenedor = document.querySelector(".product-grid");
+    contenedor.innerHTML = ""; // Limpiamos el contenedor antes de pintar nuevos resultados
 
-      const article = document.createRange().createContextualFragment(`
+    motosParaMostrar.forEach(moto => {
+        let cantidad = 0;
+
+        const article = document.createRange().createContextualFragment(`
         <article>
-
             <div class="image-container">
-
                 <img src="${obtenerImagenAleatoria()}">
-
             </div>
-
             <hr>
             <br>
-                <div class="modelomarca">
-                    <h3>modelo <strong>${moto.Model_Name}</strong> </h3>
-                    <h4>marca <strong>${moto.Make_Name}</strong></h4>
-                </div>
+            <div class="modelomarca">
+                <h3>modelo <strong>${moto.Model_Name}</strong> </h3>
+                <h4>marca <strong>${moto.Make_Name}</strong></h4>
+            </div>
             <br>
-
             <div class="articletn">
-
                 <button class="eliminarDelCarrito">
-                <span class="material-symbols-outlined">remove</span>
+                    <span class="material-symbols-outlined">remove</span>
                 </button>
                 <button class="agregarAlCarrito">
-                <span class="material-symbols-outlined">add</span>
+                    <span class="material-symbols-outlined">add</span>
                 </button>
-
             </div>
-
             <br>
-            
-            <div class="total">
-                Total:
-            </div>
-
+            <div class="total">Total: $0.00</div>
             <div>
-
                 <span class="cantidad">Seleccione al menos 1 producto</span>
-                
             </div>
             <br>
         </article>
         `);
 
-            const botonEliminar = article.querySelector(".eliminarDelCarrito");
-            const botonAgregar  = article.querySelector(".agregarAlCarrito");
-            const cantidadSpn   = article.querySelector(".cantidad");
-            const totalDiv      = article.querySelector(".total");
+        const botonEliminar = article.querySelector(".eliminarDelCarrito");
+        const botonAgregar  = article.querySelector(".agregarAlCarrito");
+        const cantidadSpn   = article.querySelector(".cantidad");
+        const totalDiv      = article.querySelector(".total");
 
-            /* varibale total de articulos y de precio total*/
-            let   articulostotal= document.querySelector("#cantidadTotal")
-            let   preciototal   = document.querySelector("#totalcost")
+        /* variables totales del header */
+        let articulostotal = document.querySelector("#cantidadTotal");
+        let preciototal    = document.querySelector("#totalcost");
 
-            function actualizarheader(){
-                articulostotal.textContent = totalProductos;
-                preciototal.textContent =`Precio total: $${(totalProductos * precio).toFixed(2)}`;
-            }
+        function actualizarheader(){
+            articulostotal.textContent = totalProductos;
+            preciototal.textContent = `Precio total: $${(totalProductos * precio).toFixed(2)}`;
+        }
 
+        function actualizarContador() {
+            cantidadSpn.textContent = `cantidad de productos: ${(cantidad)}`;
+            totalDiv.textContent = `Total: $${(cantidad * precio).toFixed(2)}`;
+        }
 
-            function actualizarContador() {
-              cantidadSpn.textContent = `cantidad de productos: ${(cantidad)}`;
-              totalDiv.textContent = `Total: $${(cantidad * precio).toFixed(2)}`;
-            }
-
-
-            botonEliminar.addEventListener("click", () => {
+        botonEliminar.addEventListener("click", () => {
             if (cantidad > 0) {
-            cantidad--;
-            totalProductos--;
-            //console.log(totalProductos);
-            actualizarContador();
-            actualizarheader()
+                cantidad--;
+                totalProductos--;
+                actualizarContador();
+                actualizarheader();
             }
-            });
+        });
 
-            botonAgregar.addEventListener("click", () => {
+        botonAgregar.addEventListener("click", () => {
             cantidad++;
             totalProductos++;
-            //console.log(totalProductos);
             actualizarContador();
-            actualizarheader()
-            });
+            actualizarheader();
+        });
 
         contenedor.append(article);
     });
+}
+
+// Carga inicial
+TraerMotos(data => {
+    listaMotos = data.Results; // Guardamos TODO el universo de motos de la API
+    
+    // Al inicio, solo mandamos a mostrar las primeras 30 usando slice
+    const motosIniciales = listaMotos.slice(0, 30);
+    renderizarMotos(motosIniciales);
+});
+
+// Evento del Buscador
+search1.addEventListener("keyup", () => {
+    const texto = search1.value.toLowerCase().trim();
+
+    // 1. Si el input está vacío, volvemos a mostrar las primeras 30 motos predeterminadas
+    if (texto === "") {
+        renderizarMotos(listaMotos.slice(0, 30));
+        return;
+    }
+
+    // 2. Filtramos sobre la lista completa de la API
+    const listaMotosFiltrada = listaMotos.filter(moto =>
+        moto.Model_Name.toLowerCase().includes(texto)
+    );
+
+    // 3. Opcional: Si la búsqueda arroja demasiados resultados, también puedes meterle un .slice() aquí
+    const resultadosLimitados = listaMotosFiltrada.slice(0, 30);
+
+    // 4. Redibujamos la pantalla con las coincidencias encontradas
+    renderizarMotos(resultadosLimitados);
 });
