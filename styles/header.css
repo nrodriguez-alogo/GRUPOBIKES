@@ -94,6 +94,7 @@ white-space: nowrap;/*Para que los títuklos de más de una palabra no pasen una
   border-left: 1px solid rgba(11, 11, 10, 0.467);
   border-right: 1px solid rgba(11, 11, 10, 0.467);
 }
+
 .navegador nav div:hover{
   background-color: rgb(182, 183, 185);
   cursor: pointer;
