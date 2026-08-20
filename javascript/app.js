@@ -77,6 +77,10 @@ function renderizarMotos(motosParaMostrar) {
                 <h4>marca <strong>${moto.Make_Name}</strong></h4>
             </div>
             <br>
+            <div class="enlace-marcas">
+                <a href="https://dismerca.com/estilo/alta-gama/?source=website&medium=organic&campaign=motos_de_alta_gama_-_dismerca">Nuestras marcas</a>
+            </div>
+            <br>
             <div class="articletn">
                 <button class="eliminarDelCarrito">
                     <span class="material-symbols-outlined">remove</span>
